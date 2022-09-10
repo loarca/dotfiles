@@ -8,7 +8,7 @@ cd ~
 # Update system
 sudo apt update && sudo apt upgrade -y
 
-# misc
+# essentials
 sudo apt install -y zsh wget curl git htop build-essential
 
 # window manager
@@ -20,36 +20,41 @@ xdg-user-dirs-update
 
 # display manager
 sudo apt install -y lightdm
-sudo dpkg-reconfigure lightdm
+sudo systemctl enable lightdm
+#sudo dpkg-reconfigure lightdm
 
 # kitty terminal
-sudo apt install -y libxcb-xkb1
-curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
-ln -s ~/.local/kitty.app/bin/kitty ~/.local/bin/
+sudo apt install kitty
+#sudo apt install -y libxcb-xkb1
+#curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
+#ln -s ~/.local/kitty.app/bin/kitty ~/.local/bin/
 
 # neovim
-sudo apt install -y ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip curl doxygen
-git clone https://github.com/neovim/neovim
-cd neovim && make CMAKE_BUILD_TYPE=RelWithDebInfo
-sudo make install
-cd
+sudo apt install neovim
+#sudo apt install -y ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip curl doxygen
+#git clone https://github.com/neovim/neovim
+#cd neovim && make CMAKE_BUILD_TYPE=RelWithDebInfo
+#sudo make install
+#cd
 
-# nvm
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
-source ~/.nvm/nvm.sh
-nvm install --lts
+# volta
+curl https://get.volta.sh | bash
+volta install node
+volta install yarn
+#curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+#source ~/.nvm/nvm.sh
+#nvm install --lts
 
 # rustup
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 source "$HOME/.cargo/env"
 
 # lunarvim? idk we'll see
-bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh)
+#bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh)
 
 # window compositor
 # fonts & nerd fonts
-# install neovim (and perhaps lunarvim as well? we'll see)
-# install zsh/fish
+# install oh-my-zsh or z4h or oh-my-fish
 sudo apt install -y firefox-esr nitrogen
 
 # get and install dotfiles
