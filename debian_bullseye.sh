@@ -19,6 +19,7 @@ source "$HOME/.cargo/env"
 sudo apt install -y xorg xserver-xorg x11-xserver-utils libx11-6 libxinerama1
 cargo install leftwm
 sudo cp ./leftwm.desktop /usr/share/xsessions/
+sudo ln -s ~/.cargo/bin/leftwm /usr/bin/leftwm
 xdg-user-dirs-update
 
 # display manager
