@@ -9,7 +9,7 @@
 sudo apt update && sudo apt upgrade -y
 
 # essentials
-sudo apt install -y intel-microcode zsh wget curl git htop gzip unzip build-essential desktop-file-utils command-not-found
+sudo apt install -y intel-microcode zsh wget curl git htop gzip unzip build-essential desktop-file-utils command-not-found tree
 
 # rust / rustup
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
@@ -54,6 +54,9 @@ cd ..
 
 # neovim
 sudo apt install -y neovim
+# packer
+git clone --depth 1 https://github.com/wbthomason/packer.nvim\
+ ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 
 # node / volta
 curl https://get.volta.sh | bash
@@ -67,12 +70,15 @@ wget https://go.dev/dl/go1.19.1.linux-amd64.tar.gz
 sudo rm -rf /usr/local/go && sudo tar -C /usr/local -xzf go1.19.1.linux-amd64.tar.gz
 rm https://go.dev/dl/go1.19.1.linux-amd64.tar.gz
 
-# window compositor
 # fonts, nerd fonts & emojis
 sudo apt install -y fonts-recommended ttf-mscorefonts-installer fonts-arphic-uming fonts-wqy-zenhei fonts-unfonts-core
 ./nerd_fonts.sh
 cp -r .config/fontconfig ~/.config/
 fc-cache -fv
+
+# window compositor
+# dunst
+# map music/fn keys (keyboard drivers? idk)
 
 # install sheldon (shell plugin manager)
 cargo install sheldon
@@ -105,7 +111,7 @@ cargo install hyperfine
 # list of files to include in dotfiles so far
 
 # ~/Pictures/wallpapers (maybe? idk)
-# ~/.config/{leftwm,spaceship.zsh}
+# ~/.config/{leftwm,spaceship.zsh,nvim}
 # ~/.sheldon/plugins.toml
 # ~/.zshrc
 # ~/.gitconfig
