@@ -9,7 +9,7 @@
 sudo apt update && sudo apt upgrade -y
 
 # essentials
-sudo apt install -y intel-microcode zsh wget curl git htop gzip unzip build-essential desktop-file-utils command-not-found tree
+sudo apt install -y intel-microcode zsh wget curl tar git htop gzip unzip build-essential desktop-file-utils xdg-utils command-not-found tree
 
 # rust / rustup
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
@@ -27,6 +27,9 @@ xdg-user-dirs-update
 sudo apt install -y lightdm
 sudo systemctl enable lightdm
 
+# feh, polybar, rofi
+sudo apt install -y feh polybar rofi
+
 # pipewire (and pulseaudio interface)
 sudo apt install -y wireplumber
 systemctl --user --now enable wireplumber.service
@@ -34,8 +37,8 @@ sudo apt install -y pipewire-pulse
 
 # alacritty terminal
 sudo apt install -y cmake pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev python3
-git clone https://github.com/alacritty/alacritty.git
-cd ./alacritty
+git clone https://github.com/alacritty/alacritty.git alacritty-repo
+cd ./alacritty-repo
 cargo build --release
 # desktop entry for alacritty
 sudo cp target/release/alacritty /usr/local/bin # or anywhere else in $PATH
@@ -68,23 +71,34 @@ volta install yarn
 # go
 wget https://go.dev/dl/go1.19.1.linux-amd64.tar.gz
 sudo rm -rf /usr/local/go && sudo tar -C /usr/local -xzf go1.19.1.linux-amd64.tar.gz
-rm https://go.dev/dl/go1.19.1.linux-amd64.tar.gz
+rm go1.19.1.linux-amd64.tar.gz
+
+# pip
+sudo apt install -y python3-pip python3-venv
+
+# hugo
+sudo apt install -y hugo
 
 # fonts, nerd fonts & emojis
 sudo apt install -y fonts-recommended ttf-mscorefonts-installer fonts-arphic-uming fonts-wqy-zenhei fonts-unfonts-core
 ./nerd_fonts.sh
-cp -r .config/fontconfig ~/.config/
+cp -r ./fontconfig ~/.config/
 fc-cache -fv
 
 # window compositor
+sudo apt install -y picom
 # dunst
 # map music/fn keys (keyboard drivers? idk)
 
 # install sheldon (shell plugin manager)
 cargo install sheldon
 chsh -s $(which zsh)
+mkdir ~/.sheldon
+cp ./.sheldon/plugins.toml ~/.sheldon/
+sheldon lock
+cp ./spaceship.zsh ~/.config/
+cp ./.zshrc ~/
 
-# get and install dotfiles
 # copy ssh keys from some sort of secured vault?
 
 # freshfetch
@@ -102,22 +116,23 @@ cargo install macchina
 # pfetch
 git clone https://github.com/dylanaraps/pfetch.git
 sudo install -Dm755 ./pfetch/pfetch /usr/local/bin/pfetch
-# add the following to the .zshrc or .profile
-export PF_INFO="ascii title os host kernel shell editor wm uptime pkgs memory palette"
-
-# hyperfine
-cargo install hyperfine
 
 # list of files to include in dotfiles so far
-
-# ~/Pictures/wallpapers (maybe? idk)
+cp -r ./alacritty ~/.config/
+cp -r ./leftwm ~/.config/
+cp ./.gitconfig ~/
+cp -r ./nvim ~/.config/
 # ~/.config/{leftwm,spaceship.zsh,nvim}
-# ~/.sheldon/plugins.toml
-# ~/.zshrc
-# ~/.gitconfig
 # zsh autocompletion files
+# auto start apps (chrome, discord) TODO
 
 # nice-to-have tools
-sudo apt install -y exa neofetch fzf firefox-esr
+sudo apt install -y firefox-esr neofetch exa fzf ranger hyperfine
 
 sudo apt autoremove -y
+
+# And now, manually install the following:
+# Google Chrome
+# Discord
+# Spotify
+# Slack
