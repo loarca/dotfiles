@@ -144,3 +144,5 @@ sudo apt autoremove -y
 # Discord
 # Spotify
 # Slack
+# Zoom
+# WhatsApp Desktop
