@@ -1,5 +1,5 @@
 # oh-my-zsh
-export ZSH="$HOME/.sheldon/repos/github.com/ohmyzsh/ohmyzsh"
+export ZSH="$HOME/.local/share/sheldon/repos/github.com/ohmyzsh/ohmyzsh"
 plugins=(
 	alias-finder
 	git
@@ -35,7 +35,14 @@ export PATH=$PATH:/usr/local/go/bin
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
 
+# dotnet
+export DOTNET_ROOT=$HOME/dotnet
+export PATH=$PATH:$HOME/dotnet
+export DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1
+
 # sheldon
+SHELDON_CONFIG_DIR="$HOME/.config/sheldon"
+SHELDON_DATA_DIR="$HOME/.config/sheldon"
 eval "$(sheldon source)"
 
 # alias
