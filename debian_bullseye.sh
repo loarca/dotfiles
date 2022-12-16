@@ -9,7 +9,11 @@
 sudo apt update && sudo apt upgrade -y
 
 # essentials
-sudo apt install -y intel-microcode zsh wget curl tar git htop gzip unzip build-essential desktop-file-utils xdg-utils command-not-found tree
+sudo apt install -y intel-microcode zsh wget curl tar git htop gzip unzip build-essential desktop-file-utils xdg-utils command-not-found tree resolvconf
+
+# setup dns servers
+sudo echo "nameserver 1.1.1.1\nnameserver 1.0.0.1" >> /etc/resolvconf/resolv.conf.d/head
+sudo resolvconf -u
 
 # rust / rustup
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
@@ -17,7 +21,7 @@ source "$HOME/.cargo/env"
 
 # letfwm - window manager
 sudo apt install -y xorg xserver-xorg x11-xserver-utils libx11-6 libxinerama1
-cargo install leftwm
+cargo install leftwm --version 0.3.0
 sudo mkdir -p /usr/share/xsessions
 sudo cp ./leftwm.desktop /usr/share/xsessions/
 sudo ln -s ~/.cargo/bin/leftwm /usr/bin/leftwm
@@ -28,7 +32,7 @@ sudo apt install -y lightdm
 sudo systemctl enable lightdm
 
 # feh, polybar, rofi
-sudo apt install -y feh polybar rofi
+sudo apt install -y feh polybar rofi maim
 
 # pipewire (and pulseaudio interface)
 sudo apt install -y wireplumber
@@ -78,6 +82,10 @@ sudo apt install -y python3-pip python3-venv
 
 # hugo
 sudo apt install -y hugo
+
+# docker
+sudo apt install -y docker.io
+sudo usermod -aG docker ale
 
 # fonts, nerd fonts & emojis
 sudo apt install -y fonts-recommended ttf-mscorefonts-installer fonts-arphic-uming fonts-wqy-zenhei fonts-unfonts-core
