@@ -25,6 +25,7 @@ if [ -x "$(command -v feh)" ]; then
   feh --bg-scale $SCRIPTPATH/better_background.jpg
 fi
 
+wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 75%
 
 index=0
 monitors="$(polybar -m | sed s/:.*//)"

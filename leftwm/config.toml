@@ -2,7 +2,22 @@ modkey = "Mod4"
 mousekey = "Mod4"
 workspaces = []
 tags = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
-layouts = ["MainAndVertStack", "MainAndHorizontalStack", "MainAndDeck", "GridHorizontal", "EvenHorizontal", "EvenVertical", "Fibonacci", "LeftMain", "CenterMain", "CenterMainBalanced", "CenterMainFluid", "Monocle", "RightWiderLeftStack", "LeftWiderRightStack"]
+layouts = [
+    "MainAndVertStack",
+    "MainAndHorizontalStack",
+    "MainAndDeck",
+    "GridHorizontal",
+    "EvenHorizontal",
+    "EvenVertical",
+    "Fibonacci",
+    "LeftMain",
+    "CenterMain",
+    "CenterMainBalanced",
+    "CenterMainFluid",
+    "Monocle",
+    "RightWiderLeftStack",
+    "LeftWiderRightStack",
+]
 layout_mode = "Workspace"
 insert_behavior = "Bottom"
 scratchpad = []
@@ -11,6 +26,60 @@ disable_current_tag_swap = false
 disable_tile_drag = false
 focus_behaviour = "Sloppy"
 focus_new_windows = true
+
+[[keybind]]
+command = "Execute"
+value = "alacritty -e python3"
+modifier = []
+key = "XF86XK_Calculator"
+
+[[keybind]]
+command = "Execute"
+value = "maim | xclip -selection clipboard -t image/png"
+modifier = []
+key = "Print"
+
+[[keybind]]
+command = "Execute"
+value = "maim -s | xclip -selection clipboard -t image/png"
+modifier = ["modkey", "Shift"]
+key = "s"
+
+[[keybind]]
+command = "Execute"
+value = "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
+modifier = []
+key = "XF86XK_AudioPrev"
+
+[[keybind]]
+command = "Execute"
+value = "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"
+modifier = []
+key = "XF86XK_AudioPlay"
+
+[[keybind]]
+command = "Execute"
+value = "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"
+modifier = []
+key = "XF86XK_AudioNext"
+
+[[keybind]]
+command = "Execute"
+value = "wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%+"
+modifier = []
+key = "XF86XK_AudioRaiseVolume"
+
+[[keybind]]
+command = "Execute"
+value = "wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%-"
+modifier = []
+key = "XF86XK_AudioLowerVolume"
+
+[[keybind]]
+command = "Execute"
+value = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+modifier = []
+key = "XF86XK_AudioMute"
 
 [[keybind]]
 command = "Execute"
