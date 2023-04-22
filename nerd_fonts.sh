@@ -4,16 +4,16 @@ sudo mkdir -p /usr/local/share/fonts
 fonts=( 
 "CascadiaCode"
 "FiraCode" 
-"Go-Mono" 
-"Hack" 
-"Inconsolata" 
-"Iosevka" 
+# "Go-Mono" 
+# "Hack" 
+# "Inconsolata" 
+# "Iosevka" 
 "JetBrainsMono" 
-"Mononoki" 
-"RobotoMono" 
-"SourceCodePro" 
-"Meslo"
-"Noto"
+# "Mononoki" 
+# "RobotoMono" 
+# "SourceCodePro" 
+# "Meslo"
+# "Noto"
 )
 
 for font in ${fonts[@]}

@@ -9,7 +9,7 @@
 sudo apt update && sudo apt upgrade -y
 
 # essentials
-sudo apt install -y intel-microcode zsh wget curl tar git htop gzip unzip build-essential desktop-file-utils xdg-utils command-not-found tree resolvconf
+sudo apt install -y intel-microcode zsh wget curl tar git htop gzip unzip build-essential libssl-dev desktop-file-utils xdg-utils command-not-found tree resolvconf
 
 # setup dns servers
 sudo echo "nameserver 1.1.1.1\nnameserver 1.0.0.1" >> /etc/resolvconf/resolv.conf.d/head

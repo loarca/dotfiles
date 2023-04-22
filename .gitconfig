@@ -1,3 +1,10 @@
 [user]
-	email = ale.j.loarca@gmail.com
 	name = Alejandro Loarca
+	email = ale.j.loarca@gmail.com
+	signingkey = A8161A34CDABD1E8
+[commit]
+	gpgsign = true
+[init]
+	defaultBranch = main
+[gpg]
+	program = gpg
